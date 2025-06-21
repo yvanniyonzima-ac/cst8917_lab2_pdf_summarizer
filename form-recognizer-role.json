@@ -1,0 +1,13 @@
+{
+  "Name": "Form Recognizer Analyzer",
+  "IsCustom": true,
+  "Description": "Custom role with permissions to analyze documents using Form Recognizer.",
+  "Actions": [],
+  "DataActions": [
+    "Microsoft.CognitiveServices/accounts/FormRecognizer/analysis/analyze/document/action"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/bd7bd383-5df6-4911-a820-52a7dc9cdb5b"
+  ]
+}
