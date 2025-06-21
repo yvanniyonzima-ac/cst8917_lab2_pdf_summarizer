@@ -82,29 +82,7 @@ func start --verbose
 
 >Note: The summaries may be truncated based on token limit from Azure Open AI. This is intentional as a way to reduce costs. 
 
-## Inspect the code
-This app leverages Durable Functions to orchestrate the application workflow. By using Durable Functions, there's no need for additional infrastructure like queues and state stores to manage task coordination and durability, which significantly reduces the complexity for developers. 
+## 📽️ Demo Video
 
-Take a look at the code snippet below, the `process_document` defines the entire workflow, which consists of a series of steps (activities) that need to be scheduled in sequence. Coordination is key, as the output of one activity is passed as an input to the next. Additionally, Durable Functions handle durability and retries, which ensure that if a failure occurs, such as a transient error or an issue with a dependent service, the workflow can recover gracefully.
+Watch the demo on [YouTube](https://youtu.be/VvvXl2BrwqA)
 
-![Orchestration Code](./media/code.png)
-
-## Deploy the app to Azure
-
-Use the [Azure Developer CLI (`azd`)](https://aka.ms/azd) to easily deploy the app. 
-
-1. In the root of the project, run the following command to provision and deploy the app:
-
-    ```bash
-    azd up
-    ```
-
-1. When prompted, provide:
-   - A name for your [Azure Developer CLI environment](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/faq#what-is-an-environment-name).
-   - The Azure subscription you'd like to use.
-   - The Azure location to use.
-
-Once the azd up command finishes, the app will have successfully provisioned and deployed. 
-
-# Using the app
-To use the app, simply upload a PDF to the Blob Storage `input` container. Once the PDF is transferred, it will be processed using document intelligence and Azure OpenAI. The resulting summary will be saved to a new file and uploaded to the `output` container.
